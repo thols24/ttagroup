@@ -1,0 +1,469 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TTA Group | Contact Us</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <!-- Use a modern, brand-like font (Montserrat) -->
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styletta.css">
+</head>
+<body>
+    <header>
+        <div class="header-row">
+            <h1><a href="indextta.html" style="color:inherit; text-decoration:none;">TTA Group</a></h1>
+            <nav>
+                <ul>
+                    <li><a href="indextta.html">Home</a></li>
+                    <li><a href="about.html" class="active">About Us</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                    <li><a href="companies.html">Our Companies</a></li>
+                </ul>
+            </nav>
+        </div>
+        <div class="header-row sticky-header-row">
+            <h1><a href="indextta.html" style="color:inherit; text-decoration:none;">TTA Group</a></h1>
+            <nav>
+                <ul>
+                    <li><a href="indextta.html" class="active">Home</a></li>
+                    <li><a href="about.html">About Us</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                    <li><a href="companies.html">Our Companies</a></li>
+                </ul>
+            </nav>
+        </div>
+        <hr class="header-divider">
+    </header>
+    <main>
+        <section class="contact-section">
+            <div class="container contact-container">
+                <div class="contact-info">
+                    <h2>Get in Touch</h2>
+                    <p>
+                        <strong>Address:</strong><br>
+                        123 Innovation Avenue,<br>
+                        Suite 456,<br>
+                        Tech City, 78910
+                    </p>
+                    <p>
+                        <strong>Email:</strong> info@ttagroup.com<br>
+                        <strong>Phone:</strong> +1 (555) 123-4567
+                    </p>
+                    <p>
+                        <strong>Working Hours:</strong><br>
+                        Mon - Fri: 9:00 AM - 6:00 PM
+                    </p>
+                </div>
+                <form class="contact-form">
+                    <h2>Send Us a Message</h2>
+                    <div class="form-group">
+                        <label for="name">Name</label>
+                        <input type="text" id="name" name="name" placeholder="Your Name" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="email">Email</label>
+                        <input type="email" id="email" name="email" placeholder="your@email.com" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="subject">Subject</label>
+                        <input type="text" id="subject" name="subject" placeholder="Subject" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="message">Message</label>
+                        <textarea id="message" name="message" rows="5" placeholder="Type your message here..." required></textarea>
+                    </div>
+                    <button type="submit" class="btn">Send Message</button>
+                </form>
+            </div>
+        </section>
+    </main>
+    <footer>
+        <div class="footer-links">
+            <a href="about.html">About Us</a> |
+            <a href="#">Terms</a> |
+            <a href="#">Privacy Policy</a> |
+            <a href="#">Sitemap</a>
+        </div>
+        <div class="footer-social">
+            <a href="https://www.linkedin.com/" target="_blank" aria-label="LinkedIn" style="margin:0 8px;">
+                <img src="./img/LI-In-Bug.png" alt="LinkedIn" width="24" height="24" style="vertical-align:middle;">
+            </a>
+            <a href="https://www.instagram.com/" target="_blank" aria-label="Instagram" style="margin:0 8px;">
+                <img src="./img/Instagram_icon.png" alt="Instagram" width="24" height="24" style="vertical-align:middle;">
+            </a>
+            <!-- Add more icons as needed -->
+        </div>
+        <div class="footer-copy">
+            Copyright &copy; 2025 TTA Group
+        </div>
+    </footer>
+    <script>
+window.addEventListener('scroll', function() {
+    const sticky = document.querySelector('.sticky-header-row');
+    // Select only the first .header-row (not the sticky one)
+    const headerRow = document.querySelector('.header-row:not(.sticky-header-row)');
+    if (!headerRow) return;
+    const triggerPoint = headerRow.getBoundingClientRect().bottom + window.scrollY;
+    if (window.scrollY > triggerPoint) {
+        sticky.style.display = 'flex';
+    } else {
+        sticky.style.display = 'none';
+    }
+});
+</script>
+</body>
+</html>
+<style>
+body {
+    font-family: 'Montserrat', 'Segoe UI', Arial, sans-serif;
+    margin: 0;
+    background: #f7f9fb;
+    color: #222;
+    font-size: 1.08rem;
+    letter-spacing: 0.01em;
+}
+
+header {
+    background: 
+        linear-gradient(90deg, rgba(0,51,102,0.85) 60%, rgba(0,80,158,0.85) 100%),
+        url('img/Construction-2.jpg') center/cover no-repeat;
+    color: #fff;
+    padding: 40px 0 24px 0;
+    box-shadow: 0 2px 12px rgba(0,0,0,0.04);
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    min-height: 390px;
+    position: relative;
+}
+
+.header-row {
+    width: 100%;
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    box-sizing: border-box;
+    position: static;
+    background: none;
+    padding-top: 0;
+    padding-bottom: 0;
+    min-height: 80px;
+}
+
+.header-row h1 {
+    margin: -170px 0 12px 40px;
+    font-size: 3.2rem;
+    letter-spacing: 2px;
+    font-weight: 700;
+    text-transform: uppercase;
+    font-family: 'Montserrat', Arial, sans-serif;
+    align-self: flex-start;
+}
+
+.header-row h1 a {
+    color: inherit;
+    text-decoration: none;
+}
+
+.header-row nav {
+    margin: -160px 40px 12px 0;
+    align-self: flex-start;
+}
+
+nav {
+    background: transparent;
+    box-shadow: none;
+    align-self: flex-start;
+}
+
+nav ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: flex-end;
+    flex-wrap: wrap;
+}
+
+nav li {
+    margin: 0 0.5rem;
+}
+
+nav a {
+    display: block;
+    color: #fff;
+    text-decoration: none;
+    padding: 1rem 2rem;
+    transition: background 0.2s;
+    font-family: 'Montserrat', Arial, sans-serif;
+    text-shadow: 0 2px 8px rgba(0,0,0,0.25);
+}
+
+nav a.active,
+nav a:hover {
+    background: rgba(0, 51, 102, 0.5);
+}
+
+.header-divider {
+    border: none;
+    border-top: 1.5px solid #fff;
+    opacity: 0.25;
+    margin: 0;
+    width: 100vw;
+    position: absolute;
+    top: 100px;
+}
+
+.sticky-header-row {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 2000;
+    display: none;
+    background: rgba(0, 51, 102, 0.99);
+    padding-top: 24px;
+    padding-bottom: 16px;
+}
+
+.sticky-header-row h1 {
+    margin: 0 0 0 40px;
+    font-size: 2rem;
+}
+
+.sticky-header-row nav {
+    margin: 0 40px 0 0;
+}
+
+.container {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 0 28px;
+}
+
+.contact-section {
+    padding: 56px 0 40px 0;
+}
+
+.contact-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 56px;
+    background: #fff;
+    border-radius: 18px;
+    box-shadow: 0 4px 24px rgba(0,0,0,0.09);
+    padding: 48px 40px;
+    align-items: flex-start;
+}
+
+.contact-info {
+    flex: 1 1 320px;
+    min-width: 260px;
+    background: linear-gradient(135deg, #f7f9fb 80%, #e3eaf2 100%);
+    border-radius: 12px;
+    padding: 32px 24px;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.03);
+}
+
+.contact-info h2 {
+    margin-top: 0;
+    color: #003366;
+    font-size: 1.5rem;
+    font-weight: 700;
+    letter-spacing: 1px;
+    font-family: 'Montserrat', Arial, sans-serif;
+}
+
+.contact-info p {
+    margin: 18px 0 0 0;
+    line-height: 1.7;
+    font-size: 1.08rem;
+}
+
+.contact-form {
+    flex: 2 1 420px;
+    min-width: 280px;
+    padding: 24px 0 0 0;
+}
+
+.contact-form h2 {
+    margin-top: 0;
+    color: #003366;
+    font-size: 1.3rem;
+    font-weight: 700;
+    font-family: 'Montserrat', Arial, sans-serif;
+}
+
+.form-group {
+    margin-bottom: 22px;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 7px;
+    font-weight: 600;
+    font-size: 1.05rem;
+    letter-spacing: 0.2px;
+}
+
+.form-group input,
+.form-group textarea {
+    width: 100%;
+    padding: 12px 14px;
+    border: 1.5px solid #cfd8dc;
+    border-radius: 7px;
+    font-size: 1rem;
+    background: #f5f8fa;
+    transition: border 0.2s;
+    resize: vertical;
+    font-family: 'Montserrat', Arial, sans-serif;
+}
+
+.form-group input:focus,
+.form-group textarea:focus {
+    border-color: #003366;
+    outline: none;
+}
+
+.btn {
+    background: linear-gradient(90deg, #003366 60%, #00509e 100%);
+    color: #fff;
+    border: none;
+    padding: 14px 38px;
+    border-radius: 7px;
+    font-size: 1.08rem;
+    font-weight: 700;
+    cursor: pointer;
+    transition: background 0.2s, box-shadow 0.2s;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.07);
+    font-family: 'Montserrat', Arial, sans-serif;
+    letter-spacing: 0.5px;
+}
+
+.btn:hover {
+    background: linear-gradient(90deg, #00509e 60%, #003366 100%);
+    box-shadow: 0 4px 16px rgba(0,80,158,0.08);
+}
+
+.tta-footer {
+    background: #003366;
+    color: #fff;
+    text-align: center;
+    padding: 22px 0;
+    margin-top: 48px;
+    font-size: 1.08rem;
+    letter-spacing: 0.7px;
+    font-family: 'Montserrat', Arial, sans-serif;
+}
+
+.footer-links {
+    margin-bottom: 12px;
+}
+.footer-links a {
+    color: #fff;
+    text-decoration: none;
+    margin: 0 8px;
+    font-weight: 500;
+    transition: color 0.2s;
+}
+.footer-links a:hover {
+    color: #ffd700;
+}
+.footer-social {
+    margin-bottom: 12px;
+}
+.footer-social a img {
+    transition: filter 0.2s;
+}
+.footer-social a:hover img {
+    filter: brightness(0.8) invert(0.7) sepia(1) hue-rotate(180deg) saturate(5);
+}
+.footer-copy {
+    font-size: 0.98rem;
+    margin-top: 8px;
+    opacity: 0.85;
+}
+footer {
+    background: #003366;
+    color: #fff;
+    text-align: center;
+    padding: 22px 0;
+    margin-top: 48px;
+    font-size: 1.08rem;
+    letter-spacing: 0.7px;
+    font-family: 'Montserrat', Arial, sans-serif;
+}
+
+@media (max-width: 1100px) {
+    .container {
+        max-width: 98vw;
+        padding: 0 10px;
+    }
+    .contact-container {
+        padding: 32px 8px;
+        gap: 32px;
+    }
+}
+
+@media (max-width: 800px) {
+    header {
+        flex-direction: column;
+        align-items: flex-start;
+        min-height: unset;
+        padding: 24px 0 12px 0;
+    }
+    header h1 {
+        margin: 0 0 12px 24px;
+        font-size: 1.3rem;
+    }
+    nav {
+        margin: 0 0 0 24px;
+    }
+    .contact-section {
+        padding: 18px 0 10px 0;
+    }
+    .contact-container {
+        padding: 10px 0;
+        gap: 16px;
+    }
+    .contact-info, .contact-form {
+        padding: 0;
+    }
+    .btn {
+        width: 100%;
+        padding: 12px 0;
+    }
+}
+
+@media (max-width: 600px) {
+    nav ul {
+        flex-direction: column;
+        align-items: stretch;
+    }
+    nav a {
+        padding: 1rem;
+        text-align: center;
+    }
+}
+
+@media (max-width: 700px) {
+    .header-row h1 {
+        font-size: 1.5rem;
+        margin: 0 0 12px 16px;
+    }
+    .header-row nav {
+        margin: 0 16px 12px 0;
+    }
+    nav ul {
+        flex-direction: column;
+        align-items: stretch;
+    }
+    nav a {
+        padding: 1rem;
+        text-align: center;
+    }
+}
+</style>

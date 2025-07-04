@@ -1,0 +1,850 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <title>TTA</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Modern font like contact.html -->
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Montserrat', 'Segoe UI', Arial, sans-serif;
+            margin: 0;
+            background: #f7f9fb;
+            color: #222;
+            font-size: 1.08rem;
+            letter-spacing: 0.01em;
+        }
+        header {
+            background: 
+                linear-gradient(90deg, rgba(0,51,102,0.85) 60%, rgba(0,80,158,0.85) 100%),
+                url('img/Construction-2.jpg') center/cover no-repeat;
+            color: #fff;
+            padding: 40px 0 24px 0;
+            box-shadow: 0 2px 12px rgba(0,0,0,0.04);
+            display: block;
+            min-height: 320px; /* Reduced from 490px */
+            position: relative;
+            padding-top: 110px; /* Adjust based on your header height */
+        }
+        .header-row {
+            width: 100%;
+            display: flex;
+            align-items: flex-start; /* Change to center for perfect alignment */
+            justify-content: space-between;
+            box-sizing: border-box;
+            position: static;
+            background: none;
+            padding-top: 0;      /* Remove extra top padding */
+            padding-bottom: 0;   /* Remove extra bottom padding */
+            min-height: 80px;    /* Ensure enough height for both h1 and nav */
+        }
+        header h1,
+        .sticky-header-row h1 {
+            margin: -85px 0 12px 40px; /* Move h1 further up */
+            font-size: 3.2rem;
+            letter-spacing: 2px;
+            font-weight: 700;
+            text-transform: uppercase;
+            font-family: 'Montserrat', Arial, sans-serif;
+            align-self: flex-start;
+        }
+        .header-row h1 {
+            margin: -85px 0 12px 40px; /* Move h1 further up */
+            font-size: 3.2rem;
+            letter-spacing: 2px;
+            font-weight: 700;
+            text-transform: uppercase;
+            font-family: 'Montserrat', Arial, sans-serif;
+            align-self: flex-start;
+        }
+        .sticky-header-row h1 {
+            font-size: 2rem; /* Slightly smaller for sticky */
+            margin: 0 0 0 40px; /* Top left in sticky bar */
+        }
+        nav {
+            background: transparent;
+            box-shadow: none;
+            margin: -68px 40px 0 0;
+            align-self: flex-start;
+        }
+        nav ul {
+            list-style: none;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: flex-end;
+            flex-wrap: wrap;
+        }
+        nav li {
+            margin: 0 0.5rem;
+        }
+        nav a {
+            display: block;
+            color: #fff;
+            text-decoration: none;
+            padding: 1rem 2rem;
+            transition: background 0.2s;
+            font-family: 'Montserrat', Arial, sans-serif;
+            text-shadow: 0 2px 8px rgba(0,0,0,0.25); /* Improves readability */
+        }
+        nav a.active,
+        nav a:hover {
+            background: rgba(0, 51, 102, 0.5); /* Semi-transparent highlight */
+        }
+        .container {
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 0 28px;
+        }
+        .main-section {
+            padding: 56px 0 40px 0;
+        }
+        .main-content {
+            background: #fff;
+            border-radius: 18px;
+            box-shadow: 0 4px 24px rgba(0,0,0,0.09);
+            padding: 48px 40px;
+            margin: 0 auto;
+            max-width: 800px;
+            text-align: left;
+        }
+        .main-highlights {
+            display: flex;
+            gap: 24px;
+            margin: 40px 0 32px 0;
+            flex-wrap: wrap;
+        }
+        .highlight-card {
+            flex: 1 1 220px;
+            background: #f7f9fb;
+            border-radius: 12px;
+            box-shadow: 0 2px 12px rgba(0,51,102,0.06);
+            padding: 28px 20px 20px 20px;
+            min-width: 220px;
+            transition: box-shadow 0.2s, transform 0.2s;
+        }
+        .highlight-card:hover {
+            box-shadow: 0 8px 32px rgba(0,51,102,0.13);
+            transform: translateY(-4px) scale(1.03);
+        }
+        .highlight-card h3 {
+            color: #003366;
+            font-size: 1.18rem;
+            font-weight: 700;
+            margin-top: 0;
+            margin-bottom: 12px;
+            letter-spacing: 0.5px;
+        }
+        .highlight-card p {
+            color: #444;
+            font-size: 1.05rem;
+            margin: 0;
+            line-height: 1.6;
+        }
+        .main-cta {
+            margin-top: 32px;
+            display: flex;
+            gap: 18px;
+            flex-wrap: wrap;
+        }
+        h2 {
+            color: #003366;
+            font-size: 2rem;
+            font-weight: 700;
+            margin-top: 0;
+            font-family: 'Montserrat', Arial, sans-serif;
+        }
+        p {
+            line-height: 1.7;
+            font-size: 1.08rem;
+        }
+        footer {
+            background: #003366;
+            color: #fff;
+            text-align: center;
+            padding: 32px 0 18px 0;
+            font-size: 1.08rem;
+            letter-spacing: 0.7px;
+            font-family: 'Montserrat', Arial, sans-serif;
+        }
+        .footer-links {
+            margin-bottom: 12px;
+        }
+        .footer-links a {
+            color: #fff;
+            text-decoration: none;
+            margin: 0 8px;
+            font-weight: 500;
+            transition: color 0.2s;
+        }
+        .footer-links a:hover {
+            color: #ffd700;
+        }
+        .footer-social {
+            margin-bottom: 12px;
+        }
+        .footer-social a img {
+            /* filter: brightness(0) invert(1); */
+            transition: filter 0.2s;
+        }
+                .footer-copy {
+            font-size: 0.98rem;
+            margin-top: 8px;
+            opacity: 0.85;
+        }
+        main {
+            background: linear-gradient(120deg, #f7f9fb 60%, #e3ecf7 100%);
+            min-height: 60vh;
+            padding: 48px 0 32px 0;
+            display: flex;
+            align-items: flex-start;
+            justify-content: center;
+        }
+
+    
+        .container {
+            max-width: 1100px;
+            width: 100%;
+            margin: 0 auto;
+            padding: 0 24px;
+            box-sizing: border-box;
+        }
+
+        .company-list {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 32px;
+        }
+
+        .company-list li {
+            background: #fff;
+            border-radius: 18px;
+            box-shadow: 0 4px 24px rgba(0,51,102,0.09);
+            padding: 36px 32px 28px 32px;
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+            transition: box-shadow 0.2s, transform 0.2s, border-left 0.2s;
+            border-left: 6px solid #003366;
+            position: relative;
+        }
+
+        .company-list li:hover {
+            box-shadow: 0 8px 32px rgba(0,51,102,0.13);
+            transform: translateY(-4px) scale(1.015);
+            border-left: 6px solid #ffd700;
+        }
+
+        .company-title {
+            font-size: 1.3rem;
+            font-weight: 700;
+            color: #003366;
+            margin-bottom: 10px;
+            letter-spacing: 0.5px;
+            transition: color 0.2s;
+        }
+
+        .company-list li:hover .company-title {
+            color: #ffd700;
+        }
+
+        .company-desc {
+            color: #444;
+            font-size: 1.08rem;
+            line-height: 1.7;
+            margin-top: 4px;
+            margin-bottom: 0;
+            font-weight: 500;
+        }
+        .section-title {
+          font-size: 2rem;
+          font-weight: bold;
+           margin: 10px;
+         color: #1a1a1a;
+         text-align: left;
+         }
+      
+    /* Company section styles  margin-bottom: 10px; */
+
+    .company-section {
+      display: flex;
+      flex-wrap: wrap;
+      
+      justify-content: center;
+      gap: 30px;
+      padding: 20px;
+    }
+
+    .company-card {
+      background: white;
+      border-radius: 12px;
+      box-shadow: 0 6px 18px rgba(0, 0, 0, 0.1);
+      overflow: hidden;
+      width: 300px;
+      transition: transform 0.3s ease;
+    }
+
+    .company-card:hover {
+      transform: translateY(-5px);
+    }
+
+    .card-image {
+      width: 100%;
+      height: 180px;
+      object-fit: cover;
+    }
+
+    .card-content {
+      padding: 20px;
+    }
+
+    .card-title {
+      font-size: 1.2rem;
+      font-weight: bold;
+      margin-bottom: 10px;
+      color: #333;
+    }
+
+    .card-description {
+      font-size: 0.95rem;
+      color: #666;
+    }
+        /* Responsive styles */
+        @media (max-width: 1100px) {
+            .container {
+                max-width: 98vw;
+                padding: 0 10px;
+            }
+            .main-content {
+                padding: 32px 8px;
+            }
+        }
+        @media (max-width: 800px) {
+            header h1 {
+                font-size: 1.3rem;
+            }
+            .main-section {
+                padding: 18px 0 10px 0;
+            }
+            .main-content {
+                padding: 10px 0;
+            }
+            .company-list {
+                grid-template-columns: 1fr;
+                gap: 24px;
+            }
+        }
+        @media (max-width: 600px) {
+            .header-row h1,
+            .sticky-header-row h1 {
+                font-size: 1.2rem;
+                margin: 0 0 8px 12px;
+            }
+            header {
+                min-height: 120px;
+                padding-top: 32px;
+                padding-bottom: 12px;
+            }
+            .hero-header-content {
+                margin-top: 8px !important;
+            }
+            nav {
+                display: block;
+                position: fixed;
+                top: 0;
+                left: -100vw; /* Start hidden off-screen to the left */
+                width: 80vw;   /* Make menu narrower for a drawer effect */
+                max-width: 320px;
+                height: 100vh;
+                background: rgba(0,51,102,0.98);
+                flex-direction: column;
+                align-items: flex-start;
+                justify-content: flex-start;
+                z-index: 3000;
+                transition: left 0.3s cubic-bezier(.77,0,.18,1);
+                box-shadow: 2px 0 16px rgba(0,0,0,0.18);
+                padding-top: 32px;
+                padding-left: 0;
+            }
+            nav.open {
+                left: 0; /* Slide in from the left */
+                display: flex;
+            }
+            .nav-toggle {
+                display: block;
+                z-index: 3001;
+                position: fixed;
+                right: 24px;
+                top: 24px;
+                background: none;
+                border: none;
+                color: #fff;
+                font-size: 2rem;
+                cursor: pointer;
+                /* Show only when menu is open */
+            }
+            nav.open + .nav-toggle {
+                /* Hide the toggle inside header-row when menu is open */
+                display: none !important;
+            }
+            /* Show a close (X) button outside the menu when open */
+            .menu-close {
+                display: none;
+                position: absolute;
+                top: 18px;
+                right: 28px;
+                background: none;
+                border: none;
+                color: #fff;
+                font-size: 2.2rem;
+                cursor: pointer;
+                z-index: 10;
+            }
+            nav.open .menu-close {
+                display: block;
+            }
+            .mobile-menu-title {
+                display: none;
+                color: #fff;
+                font-size: 1.3rem;
+                font-weight: 700;
+                margin: 0 0 0 2.2rem;
+                letter-spacing: 1px;
+                text-transform: uppercase;
+                font-family: 'Montserrat', Arial, sans-serif;
+            }
+            nav.open .mobile-menu-title {
+                display: block;
+                margin-top: 12px;
+                margin-bottom: 12px;
+            }
+            nav.open ul {
+                margin-top: 24px;
+                width: 100%;
+                align-items: flex-start;
+                display: flex;
+                flex-direction: column;
+                padding-left: 0;
+            }
+            nav.open ul li {
+                width: 100%;
+            }
+            nav.open ul li a {
+                width: 100%;
+                text-align: left;
+                padding: 1.2rem 2.2rem;
+                font-size: 1.1rem;
+                border-radius: 0;
+                border-left: 4px solid transparent;
+                transition: background 0.2s, border-color 0.2s;
+            }
+            nav.open ul li a.active,
+            nav.open ul li a:hover {
+                background: rgba(255,255,255,0.08);
+                color: #ffd700;
+                border-left: 4px solid #ffd700;
+            }
+        }
+        .hero-banner {
+            width: 100vw;
+            background: linear-gradient(90deg, rgba(0,51,102,0.85) 60%, rgba(0,80,158,0.85) 100%),
+                        url('img/Construction-2.jpg') center/cover no-repeat;
+            color: #fff;
+            padding: 80px 0 60px 0;
+            text-align: center;
+            margin-bottom: 40px;
+        }
+        .hero-content {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 0 24px;
+        }
+        .hero-title {
+            font-size: 2.4rem;
+            font-weight: 700;
+            letter-spacing: 2px;
+            margin-top: 50px;
+            font-family: 'Montserrat', Arial, sans-serif;
+            color: #fff;
+        }
+        .hero-subtitle {
+            font-size: 1.2rem;
+            margin-bottom: 32px;
+            font-family: 'Montserrat', Arial, sans-serif;
+            color: #fff;
+        }
+        .hero-cta {
+            display: flex;
+            justify-content: center;
+            gap: 24px;
+            flex-wrap: wrap;
+        }
+        .hero-btn {
+            display: inline-block;
+            background: #ffd700;
+            color: #003366;
+            font-weight: 600;
+            font-family: 'Montserrat', Arial, sans-serif;
+            padding: 1rem 2.2rem;
+            border-radius: 32px;
+            text-decoration: none;
+            font-size: 1.08rem;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+            transition: background 0.2s, color 0.2s;
+        }
+        .hero-btn:hover {
+            background: #003366;
+            color: #ffd700;
+        }
+        @media (max-width: 700px) {
+            .hero-title {
+                font-size: 1.5rem;
+            }
+            .hero-subtitle {
+                font-size: 1rem;
+            }
+            .hero-cta {
+                flex-direction: column;
+                gap: 16px;
+            }
+        }
+        .header-divider {
+            border: none;
+            border-top: 1.5px solid #fff;
+            opacity: 0.25;
+            margin: 0;
+            width: 100vw;
+            position: absolute;
+            left: 50%;
+            transform: translateX(-50%);
+            top: 100px; /* Place just below the .header-row (adjust as needed) */
+            z-index: 1;
+        }
+        .hero-header-content {
+            width: 100%;
+            text-align: center; 
+            margin-top: 32px; /* Increased from 32px to 56px */
+            display: flex;
+            flex-direction: column;
+            align-items: center; /* Center align items */
+            justify-content: center; /* Align items to the bottom */
+        }
+        .sticky-header-row {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 2000;
+            display: none;
+            background: rgba(0, 51, 102, 0.99); /* 80% transparent blue */
+            padding-top: 24px;
+            padding-bottom: 16px;
+        }
+        .sticky-header-row h1 {
+            margin: 0 0 0 40px;
+            font-size: 2rem;
+        }
+        .sticky-header-row nav {
+            margin: 0 40px 0 0;
+        }
+        .nav-toggle {
+            display: none;
+            background: none;
+            border: none;
+            color: #fff;
+            font-size: 2rem;
+            position: absolute;
+            right: 24px;
+            top: 24px;
+            z-index: 3001;
+            cursor: pointer;
+        }
+        
+        @media (max-width: 600px) {
+            .nav-toggle {
+                display: block;
+                z-index: 3001;
+                position: fixed;
+                right: 24px;
+                top: 24px;
+                background: none;
+                border: none;
+                color: #fff;
+                font-size: 2rem;
+                cursor: pointer;
+            }
+            nav.open + .nav-toggle {
+                display: none !important;
+            }
+            .menu-close {
+                display: none;
+                position: absolute;
+                top: 18px;
+                right: 18px;
+                background: none;
+                border: none;
+                color: #fff;
+                font-size: 2.2rem;
+                cursor: pointer;
+                z-index: 10;
+            }
+            nav.open .menu-close {
+                display: block;
+            }
+            .mobile-menu-title {
+                display: none;
+                color: #fff;
+                font-size: 1.3rem;
+                font-weight: 700;
+                margin: 0 0 0 2.2rem;
+                letter-spacing: 1px;
+                text-transform: uppercase;
+                font-family: 'Montserrat', Arial, sans-serif;
+            }
+            nav.open .mobile-menu-title {
+                display: block;
+                margin-top: 12px;
+                margin-bottom: 12px;
+            }
+            nav.open ul {
+                margin-top: 24px;
+                width: 100%;
+                align-items: flex-start;
+                display: flex;
+                flex-direction: column;
+                padding-left: 0;
+            }
+            nav.open ul li {
+                width: 100%;
+            }
+            nav.open ul li a {
+                width: 100%;
+                text-align: left;
+                padding: 1.2rem 2.2rem;
+                font-size: 1.1rem;
+                border-radius: 0;
+                border-left: 4px solid transparent;
+                transition: background 0.2s, border-color 0.2s;
+            }
+            nav.open ul li a.active,
+            nav.open ul li a:hover {
+                background: rgba(255,255,255,0.08);
+                color: #ffd700;
+                border-left: 4px solid #ffd700;
+            }
+            nav {
+                display: block;
+                position: fixed;
+                top: 0;
+                left: 0;
+                width: 80vw;
+                max-width: 320px;
+                height: 100vh;
+                background: #003366;
+                flex-direction: column;
+                align-items: flex-start;
+                justify-content: flex-start;
+                z-index: 3000;
+                box-shadow: 2px 0 16px rgba(0,0,0,0.18);
+                padding-top: 32px;
+                padding-left: 0;
+                transform: translateX(-100%);
+                opacity: 0;
+                pointer-events: none;
+                transition:
+                    transform 0.4s cubic-bezier(.77,0,.18,1),
+                    opacity 0.25s cubic-bezier(.77,0,.18,1);
+            }
+            nav.open {
+                transform: translateX(0);
+                opacity: 1;       
+                pointer-events: auto; /* Allow interaction when open */
+            }
+        }
+        .mobile-menu-title {
+    display: none;
+}
+nav.open .mobile-menu-title {
+    display: block;
+}
+    </style>
+</head>
+<body>
+    <header>
+        <div class="header-row">
+            <h1><a href="indextta.html" style="color:inherit; text-decoration:none;">TTA Group</a></h1>
+            <button class="nav-toggle" aria-label="Open navigation">&#9776;</button>
+            <nav>
+                <h1 class="mobile-menu-title">TTA Group</h1>
+                <ul>
+                    <li><a href="indextta.html" class="active">Home</a></li>
+                    <li><a href="about.html">About Us</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                    <li><a href="companies.html">Our Companies</a></li>
+                </ul>
+            </nav>
+           
+        </div>
+        <!-- Sticky duplicate header-row, hidden by default, shown when scrolling past the original header -->
+        <div class="header-row sticky-header-row">
+            <h1><a href="indextta.html" style="color:inherit; text-decoration:none;">TTA Group</a></h1>
+            <button class="nav-toggle" aria-label="Open navigation">&#9776;</button>
+            <nav>
+            
+                <ul>
+                    <li><a href="indextta.html" class="active">Home</a></li>
+                    <li><a href="about.html">About Us</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                    <li><a href="companies.html">Our Companies</a></li>
+                </ul>
+            </nav>
+        </div>
+        <hr class="header-divider">
+        <div class="hero-header-content" style="width:100%;text-align:center;margin-top:32px;">
+            
+            
+            <div class="hero-cta">
+                
+            </div>
+        
+    </header>
+          <main>
+        <div class="container">
+            <h2>TTA Group Companies</h2>
+            <ul class="company-list">
+                <li>
+                    <a href="https://entrepreneursgang.com/tta-construction" target="_blank" style="text-decoration:none; color:inherit;">
+                        <span class="company-title">TTA Construction</span>
+                    </a>
+                    <div class="company-desc">Mainly focuses on subcontracting.</div>
+                </li>
+                <li>
+                    <a href="https://entrepreneursgang.com/tta-dream-cleaning" target="_blank" style="text-decoration:none; color:inherit;">
+                        <span class="company-title">TTA Dream Cleaning</span>
+                    </a>
+                    <div class="company-desc">A building cleaning company.</div>
+                </li>
+            </ul>
+
+                   <h2 class=".section-title" >What We Do</h2>
+
+        <div class="company-section">
+
+    <!-- TTA Construction: Steel Frame -->
+    <div class="company-card">
+      <img src="steel-frame-construction.jpg" alt="Steel Frame Construction" class="card-image">
+      <div class="card-content">
+        <div class="card-title">Steel Frame Construction</div>
+        <div class="card-description">Strong and precise steel frameworks for modern infrastructure.</div>
+      </div>
+    </div>
+
+    <!-- TTA Construction: Masonry/Brick Work -->
+    <div class="company-card">
+      <img src="masonry-work.jpg" alt="Masonry Work in Progress" class="card-image">
+      <div class="card-content">
+        <div class="card-title">Masonry & Brick Work</div>
+        <div class="card-description">High-quality brick and block work in progress for long-lasting structures.</div>
+      </div>
+    </div>
+
+    <!-- TTA Construction: Engineers Reviewing Plans -->
+    <div class="company-card">
+      <img src="engineers-reviewing.jpg" alt="Engineers Reviewing Plans" class="card-image">
+      <div class="card-content">
+        <div class="card-title">Site Planning & Engineering</div>
+        <div class="card-description">Our expert engineers ensure your project is on track, on time, and safe.</div>
+      </div>
+    </div>
+
+    <!-- TTA Dream Cleaning: Cleaner in Luxury Apartment -->
+    <div class="company-card">
+      <img src="luxury-cleaning.jpg" alt="Professional Cleaner" class="card-image">
+      <div class="card-content">
+        <div class="card-title">Premium Home Cleaning</div>
+        <div class="card-description">Professional cleaners for spotless results in luxury spaces.</div>
+      </div>
+    </div>
+
+    <!-- TTA Dream Cleaning: Disinfection Spray -->
+    <div class="company-card">
+      <img src="disinfection-spray.jpg" alt="Disinfection Cleaning" class="card-image">
+      <div class="card-content">
+        <div class="card-title">Commercial Disinfection</div>
+        <div class="card-description">Deep sanitization of office and commercial environments.</div>
+      </div>
+    </div>
+
+    <!-- TTA Dream Cleaning: Before & After -->
+    <div class="company-card">
+      <img src="before-after-clean.jpg" alt="Before & After Cleaning" class="card-image">
+      <div class="card-content">
+        <div class="card-title">Before & After Transformation</div>
+        <div class="card-description">See the visual difference of our deep cleaning services.</div>
+      </div>
+    </div>
+
+        </div>
+        </div>
+
+        
+ 
+    </main>
+    <footer>
+        <div class="footer-links">
+            <a href="about.html">About Us</a> |
+            <a href="#">Terms</a> |
+            <a href="#">Privacy Policy</a> |
+            <a href="#">Sitemap</a>
+        </div>
+        <div class="footer-social">
+            <a href="https://www.linkedin.com/" target="_blank" aria-label="LinkedIn" style="margin:0 8px;">
+                <img src="./img/LI-In-Bug.png" alt="LinkedIn" width="24" height="24" style="vertical-align:middle;">
+            </a>
+            <a href="https://www.instagram.com/" target="_blank" aria-label="Instagram" style="margin:0 8px;">
+                <img src="./img/Instagram_icon.png" alt="Instagram" width="24" height="24" style="vertical-align:middle;">
+            </a>
+            <!-- Add more icons as needed -->
+        </div>
+        <div class="footer-copy">
+            Copyright &copy; 2025 TTA Group
+        </div>
+    </footer>
+    <script>
+window.addEventListener('scroll', function() {
+    const sticky = document.querySelector('.sticky-header-row');
+    const hero = document.querySelector('.hero-header-content');
+    if (window.scrollY > hero.getBoundingClientRect().top + window.scrollY - 80) {
+        sticky.style.display = 'flex';
+    } else {
+        sticky.style.display = 'none';
+    }
+});
+
+// Nav toggle for all .nav-toggle buttons (main and sticky header)
+document.querySelectorAll('.nav-toggle').forEach(function(btn) {
+    btn.addEventListener('click', function() {
+        var nav = btn.parentElement.querySelector('nav');
+        nav.classList.toggle('open');
+        // Toggle icon between ☰ and ✕
+        btn.innerHTML = nav.classList.contains('open') ? '&#10005;' : '&#9776;';
+    });
+});
+document.querySelectorAll('.menu-close').forEach(function(btn) {
+    btn.addEventListener('click', function() {
+        var nav = btn.closest('nav');
+        if (nav && nav.classList.contains('open')) {
+            nav.classList.remove('open');
+            // Reset the menu icon to ☰
+            var toggle = nav.parentElement.querySelector('.nav-toggle');
+            if (toggle) toggle.innerHTML = '&#9776;';
+        }
+    });
+});
+    </script>
+</body>
+</html>
